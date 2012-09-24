@@ -3,6 +3,10 @@ var express = require('express'),
 
 var app = express();
 
+// in this example I am using ejs, feel free to use a different view engine if you wish
+app.set('view engine', 'ejs');
+
+
 var handler = { };
 
 handler.meta = {
@@ -14,7 +18,12 @@ handler.meta = {
   "external_configuration": false,
   "send_timezone_info": false,
   "send_delivery_count": false
-  };
+};
+
+handler.edition = {
+  "view": "edition",
+  "meta": { }
+};
 
 littleprinter.setup(app, handler);
 

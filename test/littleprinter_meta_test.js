@@ -9,6 +9,7 @@ describe('littleprinter', function() {
       littleprinter.handler = sinon.stub();
       res = sinon.stub();
       res.send = sinon.stub();
+      res.json = sinon.stub();
     });
     it('should return 500 if no handler defined', function() {
       littleprinter.handler = undefined;
@@ -20,10 +21,10 @@ describe('littleprinter', function() {
       littleprinter.meta(null, res);
       assert(res.send.withArgs(500).calledOnce);
     });
-    it('should return meta if defined', function() {
+    it('should return json meta if defined', function() {
       littleprinter.handler.meta = { };
       littleprinter.meta(null, res);
-      assert(res.send.withArgs(littleprinter.handler.meta).calledOnce);
+      assert(res.json.withArgs(littleprinter.handler.meta).calledOnce);
     });
   });
 });

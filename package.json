@@ -15,11 +15,10 @@
         "url": "http://github.com/roylines/node-littleprinter.git"
     },
     "dependencies": {
-        "express": "3.0.0rc3",
-        "ejs": "0.8.2",
-        "winston": "0.6.2"
+        "express": "3.0.0rc3"
     },
     "devDependencies": {
+        "ejs": "0.8.2",
         "mocha": "1.4.2",
         "sinon": "1.4.2"
     },
