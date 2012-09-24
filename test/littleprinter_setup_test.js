@@ -9,14 +9,21 @@ describe('littleprinter', function() {
     beforeEach(function() {
       app = sinon.stub();
       app.get = sinon.stub();
+      app.use = sinon.stub();
       handler = sinon.stub();
       littleprinter.setup(app, handler);
     });
     it('should bind handler', function() {
       assert.equal(littleprinter.handler, handler);
     });
-    it('should setup up /meta.json', function() {
+    it('should bind defaultHandler', function() {
+      assert(app.use.withArgs(littleprinter.defaultHandler).calledOnce);
+    });
+    it('should route /meta.json', function() {
       assert(app.get.withArgs('/meta.json', littleprinter.meta).calledOnce);
+    });
+    it('should route /edition', function() {
+      assert(app.get.withArgs('/edition', littleprinter.edition).calledOnce);
     });
   });
 });

@@ -16,13 +16,8 @@ handler.meta = {
   "description": "Example publication for Little Printer",
   "delivered_on":"every day",
   "external_configuration": false,
-  "send_timezone_info": false,
-  "send_delivery_count": false
-};
-
-handler.edition = {
-  "view": "edition",
-  "meta": { }
+  "send_timezone_info": true,
+  "send_delivery_count": true
 };
 
 littleprinter.setup(app, handler);
