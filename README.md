@@ -1,4 +1,3 @@
-node-littleprinter
-==================
+# node-littleprinter
 
-node.js module for little printer publications
+node.js module for little printer publications.
