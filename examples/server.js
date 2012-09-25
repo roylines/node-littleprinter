@@ -21,5 +21,5 @@ handler.meta = {
 };
 
 littleprinter.setup(app, handler);
-
+console.log('Server started on: http://localhost:3000');
 app.listen(3000);
