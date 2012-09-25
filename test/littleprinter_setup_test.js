@@ -28,5 +28,8 @@ describe('littleprinter', function() {
     it('should route /sample', function() {
       assert(app.get.withArgs('/sample', littleprinter.sample).calledOnce);
     });
+    it('should route /icon.png', function() {
+      assert(app.get.withArgs('/icon.png', littleprinter.icon).calledOnce);
+    });
   });
 });
