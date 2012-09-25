@@ -43,5 +43,11 @@ describe('littleprinter', function() {
       assert.equal(littleprinter.handler.edition, littleprinter.defaultEdition);
       assert(next.calledOnce);
     });
+    it('should bind not change edition if defined', function() {
+      littleprinter.handler = { meta: { }, edition: function() { }};
+      littleprinter.defaultHandler(null, res, next);
+      assert.equal(littleprinter.handler.edition, littleprinter.handler.edition);
+      assert(next.calledOnce);
+    });
   });
 });
