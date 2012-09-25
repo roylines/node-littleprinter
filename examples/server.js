@@ -6,7 +6,6 @@ var app = express();
 // in this example I am using ejs, feel free to use a different view engine if you wish
 app.set('view engine', 'ejs');
 
-
 var handler = { };
 
 handler.meta = {
