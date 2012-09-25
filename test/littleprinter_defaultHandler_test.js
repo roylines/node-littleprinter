@@ -34,13 +34,13 @@ describe('littleprinter', function() {
     it('should bind default edition if null edition', function() {
       littleprinter.handler = { meta: { }, edition: null};
       littleprinter.defaultHandler(null, res, next);
-      assert.equal(littleprinter.handler.edition, littleprinter.defaultEdition);
+      assert.notEqual(littleprinter.handler.edition, null);
       assert(next.calledOnce);
     });
     it('should bind default edition if undefined edition', function() {
       littleprinter.handler = { meta: { }, edition: null};
       littleprinter.defaultHandler(null, res, next);
-      assert.equal(littleprinter.handler.edition, littleprinter.defaultEdition);
+      assert.notEqual(littleprinter.handler.edition, null);
       assert(next.calledOnce);
     });
     it('should bind not change edition if defined', function() {
@@ -52,13 +52,13 @@ describe('littleprinter', function() {
     it('should bind default sample if null sample', function() {
       littleprinter.handler = { meta: { }, sample: null};
       littleprinter.defaultHandler(null, res, next);
-      assert.equal(littleprinter.handler.sample, littleprinter.defaultSample);
+      assert.notEqual(littleprinter.handler.sample, null);
       assert(next.calledOnce);
     });
     it('should bind default sample if undefined sample', function() {
       littleprinter.handler = { meta: { }, sample: null};
       littleprinter.defaultHandler(null, res, next);
-      assert.equal(littleprinter.handler.sample, littleprinter.defaultSample);
+      assert.notEqual(littleprinter.handler.sample, null);
       assert(next.calledOnce);
     });
     it('should bind not change sample if defined', function() {

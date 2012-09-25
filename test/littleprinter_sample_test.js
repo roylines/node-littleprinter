@@ -17,11 +17,22 @@ describe('littleprinter', function() {
       littleprinter.sample(null, res);
       assert(littleprinter.handler.sample.calledOnce);
     });
-
-    it('should render correct view if sample yields ok', function() {
-      littleprinter.handler.sample.yields(null, { view: 'VIEW', meta: 'META' });
+    it('should return 500 if handler errors', function() {
+      littleprinter.handler.sample.yields('ERROR');
+      littleprinter.sample(null , res);
+      assert(res.send.withArgs(500).calledOnce);
+    });
+    it('should default view if missing', function() {
+      littleprinter.handler.sample.yields(null, { });
       littleprinter.sample(null, res);
-      assert(res.render.withArgs('VIEW', 'META').calledOnce);
+      assert(res.render.calledOnce);
+      assert.equal(res.render.firstCall.args[0], 'sample');
+    });
+    it('should use view if present', function() {
+      littleprinter.handler.sample.yields(null, { view: 'VIEW' });
+      littleprinter.sample(null, res);
+      assert(res.render.calledOnce);
+      assert.equal(res.render.firstCall.args[0], 'VIEW');
     });
   });
 });
