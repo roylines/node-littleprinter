@@ -1,0 +1,23 @@
+{
+    "name": "littleprinterexample",
+    "description": "sample server using littleprinter",
+    "version": "0.0.1",
+    "licenses": [{
+        "type": "MIT",
+        "url": "https://github.com/roylines/node-littleprinter/raw/master/LICENSE"
+    }],
+    "author": {
+        "name": "Roy Lines",
+        "url": "https://roylines.co.uk"
+    },
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/roylines/node-littleprinter.git"
+    },
+    "keywords": ["littleprinter", "BERG", "printer", "publish", "publications"],
+    "dependencies": {
+        "ejs": "0.8.2",
+        "express": "3.0.0rc3",
+        "littleprinter": "x.x.x"
+    }
+}

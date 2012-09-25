@@ -1,5 +1,5 @@
 var express = require('express'),
-    littleprinter = require('../lib/littleprinter.js');
+      littleprinter = require('littleprinter');
 
 var app = express();
 
