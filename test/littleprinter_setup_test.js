@@ -25,5 +25,8 @@ describe('littleprinter', function() {
     it('should route /edition', function() {
       assert(app.get.withArgs('/edition', littleprinter.edition).calledOnce);
     });
+    it('should route /sample', function() {
+      assert(app.get.withArgs('/sample', littleprinter.sample).calledOnce);
+    });
   });
 });
