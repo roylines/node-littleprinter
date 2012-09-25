@@ -12,6 +12,7 @@ describe('littleprinter', function() {
       res = sinon.stub();
       res.send = sinon.stub();
       res.render = sinon.stub();
+      res.set = sinon.stub();
       req = { query: { local_delivery_time: 'LDT', delivery_count: 'DC' } };
     });
     it('should call edition once', function() {
@@ -47,6 +48,20 @@ describe('littleprinter', function() {
       littleprinter.edition(req, res);
       assert(res.render.calledOnce);
       assert.equal(res.render.firstCall.args[1], 'META');
+    });
+    it('should default etag if missing', function() {
+      littleprinter.handler.edition.yields(null, { });
+      littleprinter.edition(req, res);
+      assert(res.set.calledOnce);
+      assert.equal(res.set.firstCall.args[0], 'ETag');
+      assert.equal(res.set.firstCall.args[1], 'b6e27fb5bf93110afda9660d309e3468');
+    });
+    it('should use etag if present', function() {
+      littleprinter.handler.edition.yields(null, { etag: 'ETAG' });
+      littleprinter.edition(req, res);
+      assert(res.set.calledOnce);
+      assert.equal(res.set.firstCall.args[0], 'ETag');
+      assert.equal(res.set.firstCall.args[1], 'ETAG');
     });
   });
 });
