@@ -13,5 +13,5 @@ Take a look at the [BERG](http://bergcloud.com/littleprinter/) documentation for
 ## Installation and Usage
 Check the [example](https://github.com/roylines/node-littleprinter/tree/master/examples) for now. More documentation to come...
 
-## Unsuppported Features
+## Unsupported Features
 Currently doesn't support validate_config and configure.
