@@ -49,5 +49,23 @@ describe('littleprinter', function() {
       assert.equal(littleprinter.handler.edition, littleprinter.handler.edition);
       assert(next.calledOnce);
     });
+    it('should bind default sample if null sample', function() {
+      littleprinter.handler = { meta: { }, sample: null};
+      littleprinter.defaultHandler(null, res, next);
+      assert.equal(littleprinter.handler.sample, littleprinter.defaultSample);
+      assert(next.calledOnce);
+    });
+    it('should bind default sample if undefined sample', function() {
+      littleprinter.handler = { meta: { }, sample: null};
+      littleprinter.defaultHandler(null, res, next);
+      assert.equal(littleprinter.handler.sample, littleprinter.defaultSample);
+      assert(next.calledOnce);
+    });
+    it('should bind not change sample if defined', function() {
+      littleprinter.handler = { meta: { }, sample: function() { }};
+      littleprinter.defaultHandler(null, res, next);
+      assert.equal(littleprinter.handler.sample, littleprinter.handler.sample);
+      assert(next.calledOnce);
+    });
   });
 });
