@@ -2,8 +2,8 @@ var assert = require('assert'),
     sinon = require('sinon'),
     littleprinter = require('../lib/littleprinter.js');
 
-describe('littleprinter', function() {
-  describe('edition', function() {
+describe('using littleprinter', function() {
+  describe('and calling edition', function() {
     var res;
     var req;
     beforeEach(function() {
@@ -62,6 +62,18 @@ describe('littleprinter', function() {
       assert(res.set.calledOnce);
       assert.equal(res.set.firstCall.args[0], 'ETag');
       assert.equal(res.set.firstCall.args[1], 'ETAG');
+    });
+    it('should return 304 if etag matches if-none-match', function() {
+      littleprinter.handler.edition.yields(null, { etag: 'ETAG' });
+      var reqWithIfNoneMatch = { query: { local_delivery_time: 'LDT', delivery_count: 'DC' }, headers: { }};
+      reqWithIfNoneMatch.headers['if-none-match'] = 'ETAG';
+      littleprinter.edition(reqWithIfNoneMatch, res);
+      assert(res.set.calledOnce);
+      assert.equal(res.set.firstCall.args[0], 'ETag');
+      assert.equal(res.set.firstCall.args[1], 'ETAG');
+
+      assert(res.send.calledOnce);
+      assert.equal(res.send.firstCall.args[0], '304');
     });
   });
 });
