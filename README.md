@@ -11,7 +11,7 @@ node.js server that can serve up content for [Little Printers](http://bergcloud.
 Take a look at the [BERG](http://bergcloud.com/littleprinter/) documentation for more info.
 
 ## Installation and Usage
-Check the [example](https://github.com/roylines/node-littleprinter/tree/master/examples) for now. More documentation to come...
+Check the [example](https://github.com/roylines/node-littleprinter-example) for now. More documentation to come...
 
 ## Unsupported Features
 Currently doesn't support validate_config and configure.
