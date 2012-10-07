@@ -26,7 +26,7 @@ app.set('view engine', 'ejs');
 var handler = { };
 
 handler.meta = {
-  "owner_email":"roy@roylines.co.uk",
+  "owner_email":"a@a.com",
   "publication_api_version":"1.0",
   "name": "Hello, World!",
   "description": "Example publication for Little Printer",
